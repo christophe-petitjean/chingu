@@ -58,7 +58,7 @@ module Chingu
         puts "Animations? #{glob}" if trait_options[:animation][:debug]
         Dir[glob].each do |tile_file|
           puts tile_file if trait_options[:animation][:debug]
-          if tile_file =~ /[a-zA-Z\_+]_*(\d+)x(\d+)_*([a-zA-Z]*)\.(bmp|png)/
+          if tile_file =~ /[a-zA-Z\_+]_+(\d+)x(\d+)_+([a-zA-Z0-9]*)\.(bmp|png)/
             state = $3.length > 0 ? $3 : "default"
             animations[state.to_sym] = Chingu::Animation.new(trait_options[:animation].merge(:file => tile_file))
           elsif tile_file =~ /[a-zA-Z\_+]\.(bmp|png)/
